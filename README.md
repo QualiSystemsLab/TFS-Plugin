@@ -29,8 +29,7 @@ CloudShell credentials must be set as build or release variables in the build or
 - `cloudshell.password`
 - `cloudshell.domain`
 
-TODO: Make cloudshell.password a secret variable, which must be accessed from the code differently: https://stackoverflow.com/questions/35294742/how-do-i-use-secret-variables-in-tfs-2015-vnext-build-definitions 
-
+Click the lock button to make `cloudshell.password` private.
 
 ## Usage
 

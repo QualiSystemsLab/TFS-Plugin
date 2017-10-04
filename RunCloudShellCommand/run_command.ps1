@@ -31,10 +31,10 @@ try {
     }
 
 
-    $csurl = $env:CLOUDSHELL_APIURL
-    $csusername = $env:CLOUDSHELL_USERNAME
-    $cspassword = $env:CLOUDSHELL_PASSWORD
-    $csdomain = $env:CLOUDSHELL_DOMAIN
+	$csurl = Get-VstsTaskVariable -Name "cloudshell.apiUrl"
+	$csusername = Get-VstsTaskVariable -Name "cloudshell.username"
+	$cspassword = Get-VstsTaskVariable -Name "cloudshell.password"
+	$csdomain = Get-VstsTaskVariable -Name "cloudshell.domain"
 
     $resid = $env:SANDBOXID
 

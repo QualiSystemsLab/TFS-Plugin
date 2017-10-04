@@ -33,7 +33,7 @@ try {
 
 	$csurl = $env:CLOUDSHELL_APIURL
 	$csusername = $env:CLOUDSHELL_USERNAME
-	$cspassword = $env:CLOUDSHELL_PASSWORD
+	$cspassword = Get-VstsTaskVariable -Name "cloudshell.password"
 	$csdomain = $env:CLOUDSHELL_DOMAIN
 
 	[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $True }
