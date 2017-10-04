@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TopologyInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Details Name="tfstest" Alias="tfstest" Driver="Python Setup &amp; Teardown" SetupDuration="10" TeardownDuration="10" Public="true" DefaultDuration="120">
+    <Description>Blueprint with preconfigured setup &amp; teardown processes.Deploys Apps and resolves connections on Setup, and deletes App VMs on Teardown</Description>
+    <Categories />
+    <Scripts>
+      <Script Name="Default Sandbox Teardown 2.0" />
+      <Script Name="Default Sandbox Setup 2.0" />
+    </Scripts>
+    <Diagram Zoom="1" NodeSize="Medium" />
+  </Details>
+  <Resources>
+    <Resource PositionX="840" PositionY="120" Name="vMX Template OpenStack 1" Shared="true" />
+    <Resource PositionX="808" PositionY="388" Name="vMX Template vSphere 1" Shared="true" />
+  </Resources>
+  <Apps />
+  <Inputs>
+    <GlobalInput Name="Cloud Provider" Type="Lookup">
+      <PossibleValues>
+        <Value>AWS Oregon</Value>
+        <Value>Azure</Value>
+      </PossibleValues>
+    </GlobalInput>
+    <GlobalInput Name="Count" Type="Numeric" />
+  </Inputs>
+</TopologyInfo>

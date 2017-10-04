@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="vMX Template vSphere 1" FolderFullPath="" Address="ADDRESS_TBD" ModelName="Juniper vMX Router Template" Driver="vMX VNF Deployment Resource Driver" xmlns="http://schemas.qualisystems.com/ResourceManagement/ResourceSchema.xsd">
+  <Attributes>
+    <Attribute Name="User" Value="quali" />
+    <Attribute Name="Password" Value="P0G8gOpDHL0c52ROLdsaVQ==" />
+    <Attribute Name="Enable Password" Value="P0G8gOpDHL0c52ROLdsaVQ==" />
+    <Attribute Name="System Name" Value="" />
+    <Attribute Name="Contact Name" Value="" />
+    <Attribute Name="OS Version" Value="" />
+    <Attribute Name="Vendor" Value="" />
+    <Attribute Name="Location" Value="" />
+    <Attribute Name="Backup Location" Value="" />
+    <Attribute Name="Backup Type" Value="" />
+    <Attribute Name="Backup User" Value="" />
+    <Attribute Name="Backup Password" Value="P0G8gOpDHL0c52ROLdsaVQ==" />
+    <Attribute Name="VRF Management Name" Value="" />
+    <Attribute Name="Model" Value="" />
+    <Attribute Name="SNMP Read Community" Value="public" />
+    <Attribute Name="SNMP V3 Password" Value="" />
+    <Attribute Name="SNMP V3 Private Key" Value="" />
+    <Attribute Name="SNMP V3 User" Value="" />
+    <Attribute Name="SNMP Version" Value="v2c" />
+    <Attribute Name="SNMP Write Community" Value="" />
+    <Attribute Name="Sessions Concurrency Limit" Value="1" />
+    <Attribute Name="Console Password" Value="3M3u7nkDzxWb0aJ/IZYeWw==" />
+    <Attribute Name="Console Port" Value="0" />
+    <Attribute Name="CLI TCP Port" Value="0" />
+    <Attribute Name="Console Server IP Address" Value="" />
+    <Attribute Name="Console User" Value="" />
+    <Attribute Name="CLI Connection Type" Value="SSH" />
+    <Attribute Name="Power Management" Value="True" />
+    <Attribute Name="Enable SNMP" Value="True" />
+    <Attribute Name="Disable SNMP" Value="False" />
+    <Attribute Name="Chassis App" Value="vsphere-vcp" />
+    <Attribute Name="Module App" Value="vsphere-vfp%d" />
+    <Attribute Name="Deployed Resource Family" Value="CS_Router" />
+    <Attribute Name="Deployed Resource Model" Value="Juniper JunOS Router 2G" />
+    <Attribute Name="Controller App Resource Model" Value="vMX VCP" />
+    <Attribute Name="Card App Resource Model" Value="vMX VFP" />
+    <Attribute Name="Deployed Resource Driver" Value="Juniper JunOS Router 2G" />
+    <Attribute Name="Internal Network Service" Value="" />
+    <Attribute Name="Number of modules" Value="1" />
+    <Attribute Name="Number of ports per module" Value="10" />
+    <Attribute Name="Management IP" Value="dhcp" />
+    <Attribute Name="Vlan Type" Value="VLAN" />
+  </Attributes>
+  <ChildResources>
+    <ResourceInfo Name="ge-0-0-3" Address="4" ModelName="Generic Port Template">
+      <Attributes />
+      <ChildResources />
+      <Connections />
+    </ResourceInfo>
+    <ResourceInfo Name="ge-0-0-2" Address="3" ModelName="Generic Port Template">
+      <Attributes />
+      <ChildResources />
+      <Connections />
+    </ResourceInfo>
+    <ResourceInfo Name="ge-0-0-1" Address="2" ModelName="Generic Port Template">
+      <Attributes />
+      <ChildResources />
+      <Connections />
+    </ResourceInfo>
+    <ResourceInfo Name="ge-0-0-0" Address="1" ModelName="Generic Port Template">
+      <Attributes />
+      <ChildResources />
+      <Connections />
+    </ResourceInfo>
+  </ChildResources>
+  <Connections />
+</ResourceInfo>

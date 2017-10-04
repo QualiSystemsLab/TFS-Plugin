@@ -1,0 +1,29 @@
+{
+  "id": "09def620-a90f-11e7-bd4f-5395cc0a3f71",
+  "name": "EndCloudShellSandbox",
+  "friendlyName": "End CloudShell Sandbox",
+  "description": "End a CloudShell sandbox created earlier in the pipeline",
+  "author": "Quali",
+  "helpMarkDown": "End the CloudShell identified by the SandboxId pipeline environment variable",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "2"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "EndCloudShellSandbox $(message)",
+  "inputs": [
+
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "end_sandbox.ps1"
+    }
+  }
+}

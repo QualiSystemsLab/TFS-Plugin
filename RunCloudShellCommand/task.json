@@ -1,0 +1,70 @@
+{
+  "id": "2fdadc20-a911-11e7-8075-0982d803ccc3",
+  "name": "RunCloudShellCommand",
+  "friendlyName": "Run CloudShell Command",
+  "description": "Run an environment, resource, or service command in a CloudShell sandbox",
+  "author": "Quali",
+  "helpMarkDown": "Replace with markdown to show in help",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "9"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "RunCloudShellCommand $(message)",
+  "inputs": [
+         {
+            "name": "targetType",
+            "type": "radio",
+            "label": "Type",
+            "required": true,
+            "defaultValue": "resourceOrService",
+            "helpMarkDown": "Target type: A command on a resource or service within the sandbox, or a top-level environment command",
+            "options": {
+                "resourceOrService": "Resource or Service",
+                "environment": "Environment"
+            }
+        },
+        {
+            "name": "targetPattern",
+            "type": "string",
+            "label": "Target ",
+            "visibleRule": "targetType = resourceOrService",
+            "required": true,
+            "defaultValue": "",
+            "helpMarkDown": "The name of a resource or service in the sandbox where the command should be run, or a regex that matches the name of a single resource or service, e.g. Apache.*"
+        }, 
+        {
+            "name": "commandName",
+            "type": "string",
+            "label": "Command Name ",
+            "required": true,
+            "defaultValue": "",
+            "helpMarkDown": "Internal name of the command to run, e.g. start_traffic"
+        }, 
+        {
+            "name": "commandInputs",
+            "type": "multiLine",
+            "label": "Command Inputs",
+            "required": false,
+            "defaultValue": "",
+            "properties": {
+                "resizable": "true",
+                "rows": "10",
+                "maxLength": "5000"
+            },
+            "helpMarkDown": "Command inputs, one per line. \n\nExample:\n\n    Traffic_Duration_Minutes=5\n    Load_Type=Video\n"
+        }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "run_command.ps1"
+    }
+  }
+}
