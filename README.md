@@ -40,16 +40,16 @@ Set CloudShell connection info in workflow variables:
 ![](screenshots/workflow-variables.png)
 
 
-Step to start a CloudShell sandbox and wait for Setup:
+Task to start a CloudShell sandbox and wait for Setup:
 ![](screenshots/start-sandbox-task.png)
 
-Step to run a CloudShell command (environment, resource, or service):
+Task to run a CloudShell command (environment, resource, or service):
 ![](screenshots/run-command-task.png)
 
-Step to tear down a CloudShell sandbox:
+Task to tear down a CloudShell sandbox:
 ![](screenshots/end-sandbox-task.png)
 
-How to access CloudShell reservation id and JSON resource and service details from any third-party TFS task:
+Accessing CloudShell reservation id and JSON sandbox details from any third-party TFS task:
 ![](screenshots/accessing-info-task.png)
 
 
