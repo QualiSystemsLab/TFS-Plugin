@@ -9,16 +9,16 @@ CloudShell custom tasks for TFS build or release workflows.
 	- Supports topology inputs
 	- Stores environment variables available to other tasks in this workflow run
 		- SandboxId
-		- SandboxComponents: raw JSON from the sandbox API describing the service and resources:
+		- SandboxComponents: raw JSON from the sandbox API describing the services and resources:
 			- name
 			- address
 			- attributes
 - EndCloudShellSandbox
-	- End the sandbox using the sandbox id in the environment
+	- End the sandbox using the sandbox id env var set earlier by a StartCloudShellSandbox step
 - RunCloudShellCommand
 	- Run an environment or service/resource command
 	- With inputs
-	- Uses the sandbox id in the environment
+	- Uses the sandbox id env var set earlier by a StartCloudShellSandbox step
 	- Target resource or service can be specified with a regex in case of a deployed app with a randomized name
 
 	
@@ -84,7 +84,7 @@ Download the VstsTaskSdk library that must be bundled into each task package:
 
 This will download to the current directory.
 
-Under the folder `ps_module` under each task, copy `VstsTaskSdk` *removing the folder like `0.10.0` from the hierarchy* so that these paths exist:
+Under the folder `ps_module` under each task folder, copy `VstsTaskSdk`, *removing the folder like `0.10.0` from the hierarchy*, so that these paths exist:
 
 - `StartCloudShellSandbox\ps_module\VstsTaskSdk\`
 - `EndCloudShellSandbox\ps_module\VstsTaskSdk\`
@@ -93,7 +93,7 @@ Under the folder `ps_module` under each task, copy `VstsTaskSdk` *removing the f
 In `VstsTaskSdk` you should see multiple files including `VstsTaskSdk.psd1`.
 
 
-### Installing the tasks on TFS
+### Installing the tasks to TFS
 
 
 #### Install a Windows agent
