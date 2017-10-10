@@ -1,0 +1,65 @@
+{
+  "id": "c584c0f0-a8b8-11e7-ae08-bdb55a0cd76c",
+  "name": "StartCloudShellSandbox",
+  "friendlyName": "Start CloudShell Sandbox",
+  "description": "Start a CloudShell sandbox and make resources available in the pipeline",
+  "author": "Quali",
+  "helpMarkDown": "Start a sandbox and store the details in pipeline environment variables SandboxId and SandboxComponentsJSON",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "41"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "StartCloudShellSandbox $(message)",
+    "inputs": [
+        {
+            "name": "blueprintName",
+            "type": "string",
+            "label": "Blueprint Name",
+            "required": true,
+            "defaultValue": "Blueprint",
+            "helpMarkDown": "Name of the blueprint to use for the sandbox"
+        },
+        {
+            "name": "blueprintInputs",
+            "type": "multiLine",
+            "label": "Blueprint Inputs",
+            "required": false,
+            "defaultValue": "",
+            "properties": {
+                "resizable": "true",
+                "rows": "10",
+                "maxLength": "5000"
+            },
+            "helpMarkDown": "# Blueprint inputs, one per line\n\nExample:\n\n    Cloud Provider=AWS Oregon\n    Count=5\n"
+        },
+        {
+            "name": "sandboxName",
+            "type": "string",
+            "label": "Sandbox Name",
+            "required": false,
+            "defaultValue": "",
+            "helpMarkDown": "Name of the sandbox. Leave blank to use the blueprint name."
+        },
+        {
+            "name": "durationMinutes",
+            "type": "string",
+            "label": "Duration in Minutes",
+            "required": true,
+            "defaultValue": "120",
+            "helpMarkDown": "Number of minutes before the sandbox should automatically end, if it is not ended later by this pipeline"
+        }
+    ],
+  "execution": {
+    "PowerShell3": {
+      "target": "start_sandbox.ps1"
+    }
+  }
+}

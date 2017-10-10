@@ -1,0 +1,64 @@
+{
+    "manifestVersion": 1,
+    "id": "cloudshell-actions",
+    "name": "CloudShell Actions",
+    "version": "0.0.8",
+    "publisher": "ericrqs",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Start and stop CloudShell sandboxes based on blueprints, and run sandbox commands",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+        "default": "images/icon.png"        
+    },
+    "files": [
+        {
+            "path": "startsandboxtask"
+        },
+        {
+            "path": "endsandboxtask"
+        },
+        {
+            "path": "runcommandtask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "start-sandbox-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "startsandboxtask"
+            }
+        },
+        {
+            "id": "end-sandbox-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "endsandboxtask"
+            }
+        },
+        {
+            "id": "run-command-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "runcommandtask"
+            }
+        }
+
+
+    ]
+}
