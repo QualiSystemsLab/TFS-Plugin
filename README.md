@@ -22,6 +22,8 @@ CloudShell custom tasks for TFS build or release workflows.
 	- Target resource or service can be specified with a regex in case of a deployed app with a randomized name
 - RunCloudShellTestSuite
 	- Run an existing test suite
+	- With test inputs (not yet implemented)
+	- With a blueprint for each job (not yet implemented)
 
 	
 CloudShell credentials must be set as build or release variables in the build or release `Variables` tab in TFS:
@@ -54,6 +56,10 @@ Task to tear down a CloudShell sandbox:
 
 Accessing CloudShell reservation id and JSON sandbox details from any third-party TFS task:
 ![](screenshots/accessing-info-task.png)
+
+
+Task to run a CloudShell test suite:
+![](screenshots/run-suite-task2.png)
 
 
 Executing the workflow:
