@@ -2,7 +2,9 @@
 
 ## Overview
 
-CloudShell custom tasks for TFS build or release workflows.
+CloudShell custom tasks for TFS build or release workflows. TFS (on-prem) and VSTS (hosted) are both supported, with different installation procedures.
+
+These Quali tasks are provided:
 
 - StartCloudShellSandbox
 	- Start a sandbox from a blueprint name
