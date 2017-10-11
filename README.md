@@ -105,6 +105,12 @@ Under the folder `ps_module` under each task folder, copy `VstsTaskSdk`, *removi
 - `RunCloudShellCommand\ps_module\VstsTaskSdk\`
 - `RunCloudShellTestSuite\ps_module\VstsTaskSdk\`
 
+- `CloudShellVSTSExtension\startsandboxtask\ps_module\VstsTaskSdk\`
+- `CloudShellVSTSExtension\endsandboxtask\ps_module\VstsTaskSdk\`
+- `CloudShellVSTSExtension\runcommandtask\ps_module\VstsTaskSdk\`
+- `CloudShellVSTSExtension\runsuitetask\ps_module\VstsTaskSdk\`
+
+
 In `VstsTaskSdk` you should see multiple files including `VstsTaskSdk.psd1`.
 
 
