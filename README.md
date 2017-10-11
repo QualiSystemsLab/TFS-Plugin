@@ -20,14 +20,17 @@ CloudShell custom tasks for TFS build or release workflows.
 	- With inputs
 	- Uses the sandbox id env var set earlier by a StartCloudShellSandbox step
 	- Target resource or service can be specified with a regex in case of a deployed app with a randomized name
+- RunCloudShellTestSuite
+	- Run an existing test suite
 
 	
 CloudShell credentials must be set as build or release variables in the build or release `Variables` tab in TFS:
 
-- `cloudshell.apiUrl`
-- `cloudshell.username`
-- `cloudshell.password`
-- `cloudshell.domain`
+- `cloudshell.apiUrl` e.g. http://localhost:82
+- `cloudshell.qualiApiUrl` e.g. http://localhost:9000
+- `cloudshell.username` e.g. admin
+- `cloudshell.password` e.g. admin
+- `cloudshell.domain` e.g. Global
 
 Click the lock button to make `cloudshell.password` private.
 
@@ -55,7 +58,12 @@ Accessing CloudShell reservation id and JSON sandbox details from any third-part
 
 Executing the workflow:
 
+TFS:
 ![](screenshots/queue-new-build.png)
+
+VSTS:
+![](screenshots/queue-vsts.png)
+
 
 ![](screenshots/executing.png)
 
@@ -89,6 +97,7 @@ Under the folder `ps_module` under each task folder, copy `VstsTaskSdk`, *removi
 - `StartCloudShellSandbox\ps_module\VstsTaskSdk\`
 - `EndCloudShellSandbox\ps_module\VstsTaskSdk\`
 - `RunCloudShellCommand\ps_module\VstsTaskSdk\`
+- `RunCloudShellTestSuite\ps_module\VstsTaskSdk\`
 
 In `VstsTaskSdk` you should see multiple files including `VstsTaskSdk.psd1`.
 
@@ -96,7 +105,17 @@ In `VstsTaskSdk` you should see multiple files including `VstsTaskSdk.psd1`.
 ### Installing the tasks to TFS
 
 
-#### Install a Windows agent
+#### Prerequisite: Get `tfx` CLI
+
+In PowerShell:
+
+	npm install -g tfx-cli
+
+Windows 2016 or TFS 2017 comes with `npm`.
+	
+##### TFS Installation
+
+###### Install a Windows agent
 
 On the machine where you want to install the agent (probably the TFS server itself):
 - Go to http://my_tfs_server:8080/tfs/DefaultCollection/_admin/_AgentPool
@@ -109,20 +128,12 @@ On the machine where you want to install the agent (probably the TFS server itse
 - In the event of failure, check for logs under the directory where you unzipped
 
 
-#### Get an access token for the CLI
+###### Get an access token for the CLI
 
 In the TFS 2017 GUI, generate a "personal access token" (PAT): https://roadtoalm.com/2015/07/22/using-personal-access-tokens-to-access-visual-studio-online/
 
 
-#### Get `tfx` CLI
-
-In PowerShell:
-
-	npm install -g tfx-cli
-
-Windows 2016 or TFS 2017 comes with `npm`.
-	
-#### Upload using the CLI
+###### Upload using the CLI
 
 In PowerShell:
 
@@ -138,6 +149,43 @@ Package each task and upload it:
     tfx build tasks upload --task.path .\StartCloudShellSandbox\
     tfx build tasks upload --task.path .\EndCloudShellSandbox\
     tfx build tasks upload --task.path .\RunCloudShellCommand\
+    tfx build tasks upload --task.path .\RunCloudShellTestSuite\
 
 Note: You must manually increment the patch number in `task.json` anytime you update a task.
+
+##### VSTS Installation
+
+###### Build `.vsix` file
+
+The `.vsix` file must be tailored to your VSTS user.
+
+Edit `CloudShellVSTSExtension\vss-extension.json` and set:
+
+    "publisher": "ericrqs",
+
+with your VSTS account name. This must be the VSTS account you use to upload the extension.
+
+Build the extension from PowerShell:
+
+	cd CloudShellVSTSExtension
+	tfx extension create --manifest-globs .\vss-extension.json
+
+![](screenshots/build-vsix.png)
+
+
+*Upload* the .vsix package to a VSTS account:
+![](screenshots/upload-extension.png)
+![](screenshots/extension-uploaded.png)
+
+*Share* the .vsix package with the accounts where you will run the extension:
+![](screenshots/share-extension.png)
+![](screenshots/share-extension2.png)
+
+Note: If you will publish and run with the same account, you still have to share it with yourself.
+
+*Install* the package that you have shared under the account where you will run the pipeline:
+![](screenshots/install-extension.png)
+![](screenshots/install-extension2.png)
+![](screenshots/install-extension3.png)
+![](screenshots/extension-installed.png)
 

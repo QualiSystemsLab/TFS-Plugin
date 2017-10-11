@@ -25,6 +25,9 @@
         },
         {
             "path": "runcommandtask"
+        },
+        {
+            "path": "runsuitetask"
         }
     ],
     "contributions": [
@@ -57,8 +60,17 @@
             "properties": {
                 "name": "runcommandtask"
             }
+        },
+        {
+            "id": "run-suite-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "runsuitetask"
+            }
         }
-
 
     ]
 }

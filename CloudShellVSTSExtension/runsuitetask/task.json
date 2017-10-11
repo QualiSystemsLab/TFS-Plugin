@@ -1,0 +1,81 @@
+{
+  "id": "c584c0f0-a8b8-11e7-ae08-bdb55a0cd76d",
+  "name": "RunCloudShellTestSuite",
+  "friendlyName": "Run CloudShell Test Suite",
+  "description": "Run a CloudShell test suite and wait for completion",
+  "author": "Quali",
+  "helpMarkDown": "Run a CloudShell test suite and wait for completion",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "41"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "RunCloudShellTestSuite $(message)",
+    "inputs": [
+        {
+            "name": "suiteName",
+            "type": "string",
+            "label": "Suite Name",
+            "required": true,
+            "defaultValue": "",
+            "helpMarkDown": "Name of the test suite to start"
+        },
+        {
+            "name": "testInputs",
+            "type": "multiLine",
+            "label": "Test Inputs",
+            "required": false,
+            "defaultValue": "",
+            "properties": {
+                "resizable": "true",
+                "rows": "10",
+                "maxLength": "5000"
+            },
+            "helpMarkDown": "Inputs for all tests that take inputs. \n\nExample:\n\n    TestShell\\Tests\\Shared\\Test1:\n\n    Traffic_Duration_Minutes=5\n    Load_Type=Video\n\n\n    TestShell\\Tests\\Shared\\Folder1\\Test2:\n\n    Color=Red\n"
+        },
+        {
+            "name": "includeBlueprint",
+            "type": "boolean",
+            "label": "Reserve a Sandbox",
+            "required": true,
+            "defaultValue": "",
+            "helpMarkDown": "Reserve a sandbox for this test suite run"
+        }, 
+        {
+            "name": "blueprintName",
+            "type": "string",
+            "label": "Blueprint Name",
+            "required": true,
+            "defaultValue": "Blueprint",
+            "visibleRule": "includeBlueprint = true",
+            "helpMarkDown": "Name of the blueprint to use for the sandbox"
+        },
+        {
+            "name": "blueprintInputs",
+            "type": "multiLine",
+            "label": "Blueprint Inputs",
+            "required": false,
+            "defaultValue": "",
+            "visibleRule": "includeBlueprint = true",
+
+            "properties": {
+                "resizable": "true",
+                "rows": "10",
+                "maxLength": "5000"
+            },
+            "helpMarkDown": "# Blueprint inputs, one per line\n\nExample:\n\n    Cloud Provider=AWS Oregon\n    Count=5\n"
+        }
+    ],
+  "execution": {
+    "PowerShell3": {
+      "target": "run_suite.ps1"
+    }
+  }
+}
