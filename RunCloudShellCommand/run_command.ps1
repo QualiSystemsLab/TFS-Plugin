@@ -26,7 +26,7 @@ try {
     $commandName = Get-VstsInput -Name 'commandName' -Require
 
     $targetType = Get-VstsInput -Name 'targetType' -Require
-    if("$targetType" -eq "Resource or Service") {
+    if("$targetType" -eq "resourceOrService") {
 	    $targetPattern = Get-VstsInput -Name 'targetPattern' -Require
     }
 
