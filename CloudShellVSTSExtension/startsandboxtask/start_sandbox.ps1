@@ -81,7 +81,7 @@ try {
 		
 		$state = $r.state
 
-	} while("$state" -ne "Ready")
+	} while(("$state" -ne "Ready") -and ("$state" -ne "Error"))
 
 	$url = "$csurl/api/v2/sandboxes/$resid/components"
 	write-host "URL: $url"

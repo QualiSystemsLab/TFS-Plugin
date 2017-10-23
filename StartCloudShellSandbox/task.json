@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "37"
+    "Patch": "42"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "StartCloudShellSandbox $(message)",

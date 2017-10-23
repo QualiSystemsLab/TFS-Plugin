@@ -1,2 +1,4 @@
 VstsTaskSdk
 *.vsix
+.idea/workspace.xml
+.idea/misc.xml
