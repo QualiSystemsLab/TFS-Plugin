@@ -126,7 +126,12 @@ In PowerShell:
 	npm install -g tfx-cli
 
 Windows 2016 or TFS 2017 comes with `npm`.
-	
+
+After installation, `tfx` might not be found in your path. In that case, try running it with an explicit path:
+
+	cd ~
+	./AppData/Roaming/npm/tfx -version
+
 ##### TFS Installation
 
 ###### Install a Windows agent
