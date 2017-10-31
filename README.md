@@ -48,6 +48,7 @@ Set CloudShell connection info in workflow variables:
 
 
 Task to start a CloudShell sandbox and wait for Setup:
+*!!! Be sure the specified blueprint is marked public !!!*
 ![](screenshots/start-sandbox-task.png)
 
 Task to run a CloudShell command (environment, resource, or service):
