@@ -8,6 +8,7 @@ These Quali tasks are provided:
 
 - StartCloudShellSandbox
 	- Start a sandbox from a blueprint name
+	- *!!! Be sure the blueprint is marked public !!!*
 	- Supports topology inputs
 	- Stores environment variables available to other tasks in this workflow run
 		- SandboxId
